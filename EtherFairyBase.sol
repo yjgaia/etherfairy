@@ -29,6 +29,9 @@ contract EtherFairyBase is ERC721Metadata {
 		// 요정 디자이너의 지갑
 		address designer;
 		
+		// 요정의 이름
+		string name;
+		
 		// 탄생 시간
 		uint256 birthTime;
 		

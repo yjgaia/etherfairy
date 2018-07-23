@@ -20,6 +20,9 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 		// 요정 디자이너의 지갑 주소
 		address designer,
 		
+		// 요정의 이름
+		string name,
+		
 		// 원소 속성에 대한 레벨 당 증가 포인트들
 		uint256 firePointPerLevel,
 		uint256 waterPointPerLevel,
@@ -45,11 +48,9 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 		uint256 fairyId = fairies.push(Fairy({
 			
 			fairyOriginId : fairyOriginId,
-			
 			designer : designer,
-			
+			name : name,
 			birthTime : now,
-			
 			appendedLevel : 0,
 			
 			// EVM의 특성 상 너무 많은 변수를 한번에 할당 할 수 없으므로,
@@ -87,5 +88,10 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 		// 이벤트 발생
 		emit FairyBirth(msg.sender, fairyId);
 		emit Transfer(0x0, msg.sender, fairyId);
+	}
+
+	// 요정의 이름을 변경합니다.
+	function changeFairyName(uint256 fairyId, string newName) whenServiceRunning whenNotBlocked whenNotBlockedFairy(fairyId) onlyMasterOf(fairyId) public {
+		fairies[fairyId].name = newName;
 	}
 }
