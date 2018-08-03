@@ -57,8 +57,16 @@ contract EtherFairyBase is ERC721Metadata {
 	// 요정들의 저장소
 	Fairy[] internal fairies;
 	
+	function getFairyCount() view public returns (uint256) {
+		return fairies.length;
+	}
+	
 	// 소유주들 주소
 	address[] public masters;
+	
+	function getMasterCount() view public returns (uint256) {
+		return masters.length;
+	}
 	
 	// 소유주가 이미 존재하는지
 	mapping(address => bool) internal masterToIsExisted;

@@ -9,6 +9,8 @@ contract FiaryMarket is FiaryMarketBase {
     event StartSale(uint256 indexed fairyId, uint256 price);
     event CancelSale(uint256 indexed fairyId);
     event SuccessSale(uint256 indexed fairyId, uint256 price);
+    
+	constructor(address candidateNFTAddress) FiaryMarketBase(candidateNFTAddress) public {}
 	
 	// 요정 판매를 시작합니다.
 	function startSale(uint256 fairyId, uint256 price) whenMarketRunning onlyMasterOf(fairyId) public {

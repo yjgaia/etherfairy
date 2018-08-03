@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 import "./ERC/ERC165.sol";
 import "./ERC/ERC721.sol";
-	
+
 contract FiaryMarketBase {
 	
 	// 소유권 이전 이벤트
