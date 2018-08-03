@@ -42,8 +42,8 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 위 계약들을 모두 엮고 Ether Fairy 서비스를 위해 여러가지 기능을 추가한 통합 스마트 계약입니다.
 
 ### 기능 목록
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `name()` 토큰의 이름 반환
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `symbol()` 토큰의 심볼 반환
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `name()` 토큰의 이름 반환
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `symbol()` 토큰의 심볼 반환
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `tokenURI(uint256 fairyId)` 요정 정보의 메타데이터를 가져오는 경로를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `transferOwnership(address newCompany)` 소유권을 이전합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `pauseService()` 서비스의 작동을 중지합니다.
@@ -56,7 +56,7 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `blockFairy(uint256 fairyIdToBlock)` 특정 요정을 차단합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `unblockMaster(address masterToBlock)` 소유주 차단을 해제합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `unblockFairy(uint256 fairyIdToBlock)` 요정 차단을 해제합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `balanceOf(address master)` 요정의 개수를 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `balanceOf(address master)` 요정의 개수를 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `ownerOf(uint256 fairyId)` 요정의 소유주 지갑 주소를 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `checkIsSmartContract(address addr)` 주어진 주소가 스마트 계약인지 확인합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `safeTransferFrom(address from, address to, uint256 fairyId, bytes data)` 요정을 받는 대상이 스마트 계약인 경우, onERC721Received 함수를 실행합니다.
