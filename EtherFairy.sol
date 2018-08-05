@@ -4,9 +4,10 @@ import "./ERC/ERC165.sol";
 import "./EtherFairyCompany.sol";
 import "./FairyMaster.sol";
 import "./FairyInfo.sol";
+import "./FairyRank.sol";
 
 // Ether Fairy 스마트 계약
-contract EtherFairy is EtherFairyCompany, FairyMaster, FairyInfo, ERC165 {
+contract EtherFairy is EtherFairyCompany, FairyMaster, FairyInfo, FairyRank, ERC165 {
 	
 	//ERC165: 주어진 인터페이스가 구현되어 있는지 확인합니다.
 	function supportsInterface(bytes4 interfaceID) external view returns (bool) {

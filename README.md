@@ -85,6 +85,19 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyBasicInfo(uint256 fairyId)` 요정의 기본 정보를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyBasicPointsPerLevel(uint256 fairyId)` 요정의 기본 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyElementPointsPerLevel(uint256 fairyId)` 요정의 원소 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByBirthTime()` 최근에 태어난 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByAppendedLevel()` 소유주에 의해 추가된 레벨이 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByHPPointPerLevel()` 레벨 당 HP 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByAttackPointPerLevel()` 레벨 당 공격 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByDefensePointPerLevel()` 레벨 당 방어 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByAgilityPointPerLevel()` 레벨 당 민첩 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByDexterityPointPerLevel()` 레벨 당 재치 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByFirePointPerLevel()` 레벨 당 불 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByWaterPointPerLevel()` 레벨 당 물 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByWindPointPerLevel()` 레벨 당 바람 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByEarthPointPerLevel()` 레벨 당 대지 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByLightPointPerLevel()` 레벨 당 빛 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByDarkPointPerLevel()` 레벨 당 어둠 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `supportsInterface(bytes4 interfaceID)` 주어진 인터페이스가 구현되어 있는지 확인합니다.
 
 ## FiaryMarketBase.sol
@@ -106,3 +119,4 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 
 ## 작성자
 [Young Jae Sim](https://github.com/Hanul)
+ 

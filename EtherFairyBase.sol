@@ -35,7 +35,7 @@ contract EtherFairyBase is ERC721Metadata {
 		// 탄생 시간
 		uint256 birthTime;
 		
-		// 마스터에 의해 추가된 레벨
+		// 소유주에 의해 추가된 레벨
 		uint256 appendedLevel;
 		
 		// 기본 속성에 대한 레벨 당 증가 포인트들
