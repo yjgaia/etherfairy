@@ -78,14 +78,14 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `increaseEarthPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 대지 속성 증가 포인트를 올립니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `increaseLightPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 빛 속성 증가 포인트를 올립니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `increaseDarkPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 어둠 속성 증가 포인트를 올립니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `birthFairy(string fairyOriginId, address designer, string name, uint256 firePointPerLevel, uint256 waterPointPerLevel, uint256 windPointPerLevel, uint256 earthPointPerLevel, uint256 lightPointPerLevel, uint256 darkPointPerLevel)` 요정을 탄생시킵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `birthFairy(string fairyOriginId, address designer, string name, uint256 firePointPerLevel, uint256 waterPointPerLevel, uint256 windPointPerLevel, uint256 earthPointPerLevel, uint256 lightPointPerLevel, uint256 darkPointPerLevel)` 요정을 탄생시킵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `changeFairyName(uint256 fairyId, string newName)` 요정의 이름을 변경합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyCount()` 요정의 개수를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getMasterCount()` 소유주 계정의 개수를 반환합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyBasicInfo(uint256 fairyId)` 요정의 기본 정보를 반환합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyBasicPointsPerLevel(uint256 fairyId)` 요정의 기본 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyElementPointsPerLevel(uint256 fairyId)` 요정의 원소 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByBirthTime()` 최근에 태어난 순서대로 요정의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `getFairyBasicInfo(uint256 fairyId)` 요정의 기본 정보를 반환합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `getFairyBasicPointsPerLevel(uint256 fairyId)` 요정의 기본 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `getFairyElementPointsPerLevel(uint256 fairyId)` 요정의 원소 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트 여부-yes-brightgreen.svg) `getFairyIdsByBirthTime()` 최근에 태어난 순서대로 요정의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByAppendedLevel()` 소유주에 의해 추가된 레벨이 높은 순서대로 요정의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByHPPointPerLevel()` 레벨 당 HP 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트 여부-no-red.svg) `getFairyIdsByAttackPointPerLevel()` 레벨 당 공격 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
