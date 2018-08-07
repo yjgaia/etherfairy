@@ -15,7 +15,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 레벨을 올립니다.
 		Fairy storage fairy = fairies[fairyId];
-		fairy.appendedLevel.add(1);
+		fairy.appendedLevel = fairy.appendedLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -33,7 +33,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		require(msg.value == increasePointPricePerPoint * fairy.hpPointPerLevel);
 		
 		// 레벨 당 HP 증가 포인트를 올립니다.
-		fairy.hpPointPerLevel.add(1);
+		fairy.hpPointPerLevel = fairy.hpPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -51,7 +51,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		require(msg.value == increasePointPricePerPoint * fairy.attackPointPerLevel);
 		
 		// 레벨 당 공격 증가 포인트를 올립니다.
-		fairy.attackPointPerLevel.add(1);
+		fairy.attackPointPerLevel = fairy.attackPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -69,7 +69,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		require(msg.value == increasePointPricePerPoint * fairy.defensePointPerLevel);
 		
 		// 레벨 당 방어 증가 포인트를 올립니다.
-		fairy.defensePointPerLevel.add(1);
+		fairy.defensePointPerLevel = fairy.defensePointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -87,7 +87,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		require(msg.value == increasePointPricePerPoint * fairy.agilityPointPerLevel);
 		
 		// 레벨 당 민첩 증가 포인트를 올립니다.
-		fairy.agilityPointPerLevel.add(1);
+		fairy.agilityPointPerLevel = fairy.agilityPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -105,7 +105,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		require(msg.value == increasePointPricePerPoint * fairy.dexterityPointPerLevel);
 		
 		// 레벨 당 재치 증가 포인트를 올립니다.
-		fairy.dexterityPointPerLevel.add(1);
+		fairy.dexterityPointPerLevel = fairy.dexterityPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -120,10 +120,10 @@ contract FairyPayToUpgrade is FairyOwnership {
 		Fairy storage fairy = fairies[fairyId];
 		
 		// 임의로 포인트를 증가시키는데 드는 포인트당 가격과 비교합니다.
-		require(msg.value == increasePointPricePerPoint * fairy.firePointPerLevel);
+		require(msg.value == increasePointPricePerPoint * fairy.firePointPerLevel.add(1));
 		
 		// 레벨 당 불 속성 증가 포인트를 올립니다.
-		fairy.firePointPerLevel.add(1);
+		fairy.firePointPerLevel = fairy.firePointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -138,10 +138,10 @@ contract FairyPayToUpgrade is FairyOwnership {
 		Fairy storage fairy = fairies[fairyId];
 		
 		// 임의로 포인트를 증가시키는데 드는 포인트당 가격과 비교합니다.
-		require(msg.value == increasePointPricePerPoint * fairy.waterPointPerLevel);
+		require(msg.value == increasePointPricePerPoint * fairy.waterPointPerLevel.add(1));
 		
 		// 레벨 당 물 속성 증가 포인트를 올립니다.
-		fairy.waterPointPerLevel.add(1);
+		fairy.waterPointPerLevel = fairy.waterPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -156,10 +156,10 @@ contract FairyPayToUpgrade is FairyOwnership {
 		Fairy storage fairy = fairies[fairyId];
 		
 		// 임의로 포인트를 증가시키는데 드는 포인트당 가격과 비교합니다.
-		require(msg.value == increasePointPricePerPoint * fairy.windPointPerLevel);
+		require(msg.value == increasePointPricePerPoint * fairy.windPointPerLevel.add(1));
 		
 		// 레벨 당 바람 속성 증가 포인트를 올립니다.
-		fairy.windPointPerLevel.add(1);
+		fairy.windPointPerLevel = fairy.windPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -174,10 +174,10 @@ contract FairyPayToUpgrade is FairyOwnership {
 		Fairy storage fairy = fairies[fairyId];
 		
 		// 임의로 포인트를 증가시키는데 드는 포인트당 가격과 비교합니다.
-		require(msg.value == increasePointPricePerPoint * fairy.earthPointPerLevel);
+		require(msg.value == increasePointPricePerPoint * fairy.earthPointPerLevel.add(1));
 		
 		// 레벨 당 대지 속성 증가 포인트를 올립니다.
-		fairy.earthPointPerLevel.add(1);
+		fairy.earthPointPerLevel = fairy.earthPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -192,10 +192,10 @@ contract FairyPayToUpgrade is FairyOwnership {
 		Fairy storage fairy = fairies[fairyId];
 		
 		// 임의로 포인트를 증가시키는데 드는 포인트당 가격과 비교합니다.
-		require(msg.value == increasePointPricePerPoint * fairy.lightPointPerLevel);
+		require(msg.value == increasePointPricePerPoint * fairy.lightPointPerLevel.add(1));
 		
 		// 레벨 당 빛 속성 증가 포인트를 올립니다.
-		fairy.lightPointPerLevel.add(1);
+		fairy.lightPointPerLevel = fairy.lightPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
@@ -210,10 +210,10 @@ contract FairyPayToUpgrade is FairyOwnership {
 		Fairy storage fairy = fairies[fairyId];
 		
 		// 임의로 포인트를 증가시키는데 드는 포인트당 가격과 비교합니다.
-		require(msg.value == increasePointPricePerPoint * fairy.darkPointPerLevel);
+		require(msg.value == increasePointPricePerPoint * fairy.darkPointPerLevel.add(1));
 		
 		// 레벨 당 어둠 속성 증가 포인트를 올립니다.
-		fairy.darkPointPerLevel.add(1);
+		fairy.darkPointPerLevel = fairy.darkPointPerLevel.add(1);
 		
 		// 회사에게 금액의 50%를 지급합니다.
 		company.transfer(msg.value.div(2));
