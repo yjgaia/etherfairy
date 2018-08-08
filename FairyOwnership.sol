@@ -35,7 +35,8 @@ contract FairyOwnership is EtherFairyBase, ERC721 {
 		require(
 			msg.sender == ownerOf(fairyId) ||
 			msg.sender == getApproved(fairyId) ||
-			isApprovedForAll(ownerOf(fairyId), msg.sender) == true
+			isApprovedForAll(ownerOf(fairyId), msg.sender) == true ||
+			msg.sender == officialMarket
 		);
 		_;
 	}
@@ -110,7 +111,7 @@ contract FairyOwnership is EtherFairyBase, ERC721 {
 		emit Transfer(from, to, fairyId);
 	}
 	
-	//ERC721: 특정 지갑에 거래 권한을 부여합니다.
+	//ERC721: 특정 계약에 거래 권한을 부여합니다.
 	function approve(address approved, uint256 fairyId) whenServiceRunning whenNotBlocked whenNotBlockedFairy(fairyId) onlyMasterOf(fairyId) payable external {
 		
 		address master = ownerOf(fairyId);

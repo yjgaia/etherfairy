@@ -80,9 +80,13 @@ contract EtherFairyBase is ERC721Metadata {
 	// 회사의 지갑 주소
 	address public company;
 	
+	// 공식 마켓 계약 주소
+	address public officialMarket;
+	
 	constructor() public {
-		// 계약 생성자를 초기 회사로 등록
+		// 계약 생성자를 초기 회사 및 공식 마켓 주소로 등록
 		company = msg.sender;
+		officialMarket = msg.sender;
 	}
 	
 	// 서비스가 일시중지 상태인지

@@ -18,25 +18,75 @@ contract FiaryMarket is FiaryMarketBase {
 		// 마켓으로 요정 이전
 		nft.transferFrom(msg.sender, this, fairyId);
 		
-		// 판매 정보 등록
-		fairyIdToSale[fairyId] = Sale({
+		// 판매 정보 생성
+		sales.push(Sale({
 			seller : msg.sender,
+			fairyId : fairyId,
 			price : price
-		});
+		}));
 		
 		emit StartSale(fairyId, price);
+	}
+	
+	// 요정이 판매되고 있는지 확인합니다.
+	function checkFairyForSale(uint256 fairyId) whenMarketRunning public view returns (bool) {
+		
+		// saleId를 찾습니다.
+		for (uint256 i = 0; i < sales.length; i += 1) {
+			if (sales[i].fairyId == fairyId) {
+				return true;
+			}
+        }
+		
+		return false;
+	}
+	
+	// 요정 ID로부터 판매 정보 ID를 가져옵니다.
+	function findSaleIdByFairyId(uint256 fairyId) whenMarketRunning public view returns (uint256) {
+		
+		bool isFound = false;
+		uint256 saleId;
+		
+		// saleId를 찾습니다.
+		for (uint256 i = 0; i < sales.length; i += 1) {
+			if (sales[i].fairyId == fairyId) {
+				saleId = i;
+				isFound = true;
+			}
+        }
+		
+		// 판매 정보를 찾은 경우에만
+		require(isFound == true);
+		
+		return saleId;
 	}
 	
 	// 요정 판매를 취소합니다.
 	function cancelSale(uint256 fairyId) whenMarketRunning public {
 		
-		require(msg.sender == fairyIdToSale[fairyId].seller);
+		bool isFound = false;
+		uint256 saleId;
+		
+		// saleId를 찾습니다.
+		for (uint256 i = 0; i < sales.length; i += 1) {
+			if (sales[i].fairyId == fairyId) {
+				saleId = i;
+				isFound = true;
+			}
+        }
+		
+		// 소유주인 경우에만
+		require(isFound == true && msg.sender == sales[saleId].seller);
 		
 		// 소유주로 요정 이전
 		nft.transferFrom(this, msg.sender, fairyId);
 		
 		// 판매 정보 삭제
-		delete fairyIdToSale[fairyId];
+		for (i = saleId; i < sales.length - 1; i += 1){
+            sales[i] = sales[i + 1];
+        }
+        delete sales[sales.length - 1];
+        sales.length -= 1;
 		
 		emit CancelSale(fairyId);
 	}
@@ -44,7 +94,21 @@ contract FiaryMarket is FiaryMarketBase {
 	// 요정을 구매합니다.
 	function buy(uint256 fairyId) whenMarketRunning payable public {
 		
-		Sale memory sale = fairyIdToSale[fairyId];
+		bool isFound = false;
+		uint256 saleId;
+		Sale memory sale;
+		
+		// saleId를 찾습니다.
+		for (uint256 i = 0; i < sales.length; i += 1) {
+			if (sales[i].fairyId == fairyId) {
+				saleId = i;
+				sale = sales[i];
+				isFound = true;
+			}
+        }
+		
+		// 판매 정보를 찾은 경우에만
+		require(isFound == true);
 		
 		// 정상적인 판매인지 체크
 		require(checkAddressMisused(sale.seller) != true);
@@ -62,7 +126,11 @@ contract FiaryMarket is FiaryMarketBase {
 		sale.seller.transfer(msg.value.div(10).mul(9));
 		
 		// 판매 정보 삭제
-		delete fairyIdToSale[fairyId];
+		for (i = saleId; i < sales.length - 1; i += 1){
+            sales[i] = sales[i + 1];
+        }
+        delete sales[sales.length - 1];
+        sales.length -= 1;
 		
 		emit SuccessSale(fairyId, sale.price);
 	}

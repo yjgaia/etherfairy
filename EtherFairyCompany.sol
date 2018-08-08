@@ -57,6 +57,11 @@ contract EtherFairyCompany is EtherFairyBase {
 		tokenMetadataBaseURI = newTokenMetadataBaseURI;
 	}
 	
+	// 공식 마켓 계약을 변경합니다.
+	function changeOfficialMarket(address newOfficialMarket) onlyCompany public {
+		officialMarket = newOfficialMarket;
+	}
+	
 	// 특정 소유주를 차단합니다.
 	function blockMaster(address masterToBlock) onlyCompany public {
 		masterToIsBlocked[masterToBlock] = true;

@@ -18,12 +18,19 @@ contract FiaryMarketBase {
 		// 판매자
 		address seller;
 		
+		// 요정 ID
+		uint256 fairyId;
+		
 		// 가격
 		uint256 price;
 	}
 	
-	// 요정 ID에 해당하는 판매 정보
-    mapping(uint256 => Sale) public fairyIdToSale;
+	// 판매 정보 저장소
+	Sale[] public sales;
+	
+	function getSaleCount() view public returns (uint256) {
+		return sales.length;
+	}
 	
 	// 회사의 지갑 주소
 	address public company;
