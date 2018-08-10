@@ -52,7 +52,7 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `changeCustomLevelUpPrice(uint256 newCustomLevelUpPrice)` 임의 레벨업 가격을 변경합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `changeIncreasePointPricePerPoint(uint256 newIncreasePointPricePerPoint)` 임의로 포인트를 증가시키는데 드는 포인트당 가격을 변경합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `changeTokenMetadataBaseURI(string newTokenMetadataBaseURI)` tokenMetadataBaseURI을 변경합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `changeOfficialMarket(address newOfficialMarket)` 공식 마켓 계약을 변경합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `changeOfficialMarket(address newOfficialMarket)` 공식 마켓 계약을 변경합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `blockMaster(address masterToBlock)` 특정 소유주를 차단합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `blockFairy(uint256 fairyIdToBlock)` 특정 요정을 차단합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `unblockMaster(address masterToBlock)` 소유주 차단을 해제합니다.
@@ -60,12 +60,12 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `balanceOf(address master)` 요정의 개수를 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `ownerOf(uint256 fairyId)` 요정의 소유주 지갑 주소를 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `safeTransferFrom(address from, address to, uint256 fairyId, bytes data)` 요정을 받는 대상이 스마트 계약인 경우, onERC721Received 함수를 실행합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `safeTransferFrom(address from, address to, uint256 fairyId)` 요정을 받는 대상이 스마트 계약인 경우, onERC721Received 함수를 실행합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `safeTransferFrom(address from, address to, uint256 fairyId)` 요정을 받는 대상이 스마트 계약인 경우, onERC721Received 함수를 실행합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `transferFrom(address from, address to, uint256 fairyId)` 요정을 이전합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `approve(address approved, uint256 fairyId)` 특정 지갑에 거래 권한을 부여합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `setApprovalForAll(address operator, bool isApproved)` 오퍼레이터에게 거래 권한을 부여하거나 뺏습니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `getApproved(uint256 fairyId)` 요정 거래 권한이 승인된 지갑 주소를 가져옵니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `isApprovedForAll(address master, address operator)` 오퍼레이터가 소유주의 거래 권한을 가지고 있는지 확인합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `approve(address approved, uint256 fairyId)` 특정 지갑에 거래 권한을 부여합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `setApprovalForAll(address operator, bool isApproved)` 오퍼레이터에게 거래 권한을 부여하거나 뺏습니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getApproved(uint256 fairyId)` 요정 거래 권한이 승인된 지갑 주소를 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `isApprovedForAll(address master, address operator)` 오퍼레이터가 거래 권한을 가지고 있는지 확인합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `levelUpFairy(uint256 fairyId)` 돈을 지불하고 레벨업 합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `increaseHPPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 HP 증가 포인트를 올립니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `increaseAttackPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 공격 증가 포인트를 올립니다.

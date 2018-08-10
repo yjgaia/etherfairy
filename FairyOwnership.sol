@@ -57,7 +57,7 @@ contract FairyOwnership is EtherFairyBase, ERC721 {
 	
 	// 주어진 주소가 스마트 계약인지 확인합니다.
 	function checkIsSmartContract(address addr) view private returns (bool) {
-		uint size;
+		uint32 size;
 		assembly { size := extcodesize(addr) }
 		return size > 0;
 	}
@@ -144,7 +144,7 @@ contract FairyOwnership is EtherFairyBase, ERC721 {
 		return fairyIdToApproved[fairyId];
 	}
 	
-	//ERC721: 오퍼레이터가 소유주의 거래 권한을 가지고 있는지 확인합니다.
+	//ERC721: 오퍼레이터가 거래 권한을 가지고 있는지 확인합니다.
 	function isApprovedForAll(address master, address operator) view public returns (bool) {
 		return masterToOperatorToIsApprovedForAll[master][operator] == true;
 	}

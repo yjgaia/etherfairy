@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 import "./FiaryMarketBase.sol";
 import "./Util/SafeMath.sol";
-	
+
 contract FiaryMarket is FiaryMarketBase {
 	using SafeMath for uint256;
 
