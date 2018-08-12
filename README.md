@@ -80,6 +80,7 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `increaseDarkPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 어둠 속성 증가 포인트를 올립니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `birthFairy(string fairyOriginId, address designer, string name, uint256 firePointPerLevel, uint256 waterPointPerLevel, uint256 windPointPerLevel, uint256 earthPointPerLevel, uint256 lightPointPerLevel, uint256 darkPointPerLevel)` 요정을 탄생시킵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `changeFairyName(uint256 fairyId, string newName)` 요정의 이름을 변경합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `getMasterIdsByFairyCount()` 요정을 많이 가진 순서대로 소유주의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyCount()` 요정의 개수를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getMasterCount()` 소유주 계정의 개수를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyBasicInfo(uint256 fairyId)` 요정의 기본 정보를 반환합니다.
