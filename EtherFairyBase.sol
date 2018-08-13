@@ -61,6 +61,35 @@ contract EtherFairyBase is ERC721Metadata {
 		return fairies.length;
 	}
 	
+	// 원본 ID에 해당하는 요정의 개수를 반환합니다.
+	function getFairyCountByOriginId(string fairyOriginId) view public returns (uint256) {
+		bytes32 hash = keccak256(bytes(fairyOriginId));
+		
+		uint256 fairyCount = 0;
+		for (uint256 i = 0; i < fairies.length; i += 1) {
+			if (keccak256(bytes(fairies[i].fairyOriginId)) == hash) {
+				fairyCount += 1;
+			}
+		}
+		
+		return fairyCount;
+	}
+	
+	// 원본 ID에 해당하는 요정의 ID 목록을 반환합니다.
+	function getFairyIdsByOriginId(string fairyOriginId) view public returns (uint256[]) {
+		bytes32 hash = keccak256(bytes(fairyOriginId));
+		
+		uint256[] memory fairyIds = new uint256[](getFairyCountByOriginId(fairyOriginId));
+		
+		for (uint256 i = 0; i < fairies.length; i += 1) {
+			if (keccak256(bytes(fairies[i].fairyOriginId)) == hash) {
+				fairyIds[fairyIds.length - 1] = i;
+			}
+		}
+		
+		return fairyIds;
+	}
+	
 	// 소유주들 주소
 	address[] public masters;
 	

@@ -6,6 +6,17 @@ import "./FairyOwnership.sol";
 contract FairyPayToUpgrade is FairyOwnership {
 	
     event CustomLevelUp(uint256 indexed fairyId);
+    event IncreaseHPPointPerLevel(uint256 indexed fairyId);
+    event IncreaseAttackPointPerLevel(uint256 indexed fairyId);
+    event IncreaseDefensePointPerLevel(uint256 indexed fairyId);
+    event IncreaseAgilityPointPerLevel(uint256 indexed fairyId);
+    event IncreaseDexterityPointPerLevel(uint256 indexed fairyId);
+    event IncreaseFirePointPerLevel(uint256 indexed fairyId);
+    event IncreaseWaterPointPerLevel(uint256 indexed fairyId);
+    event IncreaseWindPointPerLevel(uint256 indexed fairyId);
+    event IncreaseEarthPointPerLevel(uint256 indexed fairyId);
+    event IncreaseLightPointPerLevel(uint256 indexed fairyId);
+    event IncreaseDarkPointPerLevel(uint256 indexed fairyId);
 
 	// 돈을 지불하고 레벨업 합니다.
 	function levelUpFairy(uint256 fairyId) whenServiceRunning whenNotBlocked whenNotBlockedFairy(fairyId) onlyMasterOf(fairyId) payable public {
@@ -22,6 +33,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit CustomLevelUp(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 HP 증가 포인트를 올립니다.
@@ -40,6 +53,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseHPPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 공격 증가 포인트를 올립니다.
@@ -58,6 +73,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseAttackPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 방어 증가 포인트를 올립니다.
@@ -76,6 +93,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseDefensePointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 민첩 증가 포인트를 올립니다.
@@ -94,6 +113,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseAgilityPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 재치 증가 포인트를 올립니다.
@@ -112,6 +133,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseDexterityPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 불 속성 증가 포인트를 올립니다.
@@ -130,6 +153,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseFirePointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 물 속성 증가 포인트를 올립니다.
@@ -148,6 +173,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseWaterPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 바람 속성 증가 포인트를 올립니다.
@@ -166,6 +193,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseWindPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 대지 속성 증가 포인트를 올립니다.
@@ -184,6 +213,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseEarthPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 빛 속성 증가 포인트를 올립니다.
@@ -202,6 +233,8 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseLightPointPerLevel(fairyId);
 	}
 	
 	// 돈을 지불하고 레벨 당 어둠 속성 증가 포인트를 올립니다.
@@ -220,5 +253,7 @@ contract FairyPayToUpgrade is FairyOwnership {
 		
 		// 요정의 디자이너에게 금액의 50%를 지급합니다.
 		fairy.designer.transfer(msg.value.div(2));
+		
+		emit IncreaseDarkPointPerLevel(fairyId);
 	}
 }

@@ -12,6 +12,17 @@ contract EtherFairyCompany is EtherFairyBase {
 	event PauseService();
 	event ResumeService();
 	
+	// 기타 이벤트
+	event ChangeFairyOriginPrice(uint256 price);
+	event ChangeCustomLevelUpPrice(uint256 price);
+	event ChangeIncreasePointPricePerPoint(uint256 price);
+	event ChangeTokenMetadataBaseURI(string tokenMetadataBaseURI);
+	event ChangeOfficialMarket(address officialMarket);
+	event BlockMaster(address masterToBlock);
+	event BlockFairy(uint256 fairyIdToBlock);
+	event UnblockMaster(address masterToUnlock);
+	event UnblockFairy(uint256 fairyIdToUnblock);
+	
 	// 회사만 처리 가능
 	modifier onlyCompany {
 		require(msg.sender == company);
@@ -40,45 +51,54 @@ contract EtherFairyCompany is EtherFairyBase {
 	// 요정 원본의 가격을 변경합니다.
 	function changeFairyOriginPrice(uint256 newFairyOriginPrice) onlyCompany public {
 		fairyOriginPrice = newFairyOriginPrice;
+		emit ChangeFairyOriginPrice(newFairyOriginPrice);
 	}
 	
 	// 임의 레벨업 가격을 변경합니다.
 	function changeCustomLevelUpPrice(uint256 newCustomLevelUpPrice) onlyCompany public {
 		customLevelUpPrice = newCustomLevelUpPrice;
+		emit ChangeCustomLevelUpPrice(newCustomLevelUpPrice);
 	}
 	
 	// 임의로 포인트를 증가시키는데 드는 포인트당 가격을 변경합니다.
 	function changeIncreasePointPricePerPoint(uint256 newIncreasePointPricePerPoint) onlyCompany public {
 		increasePointPricePerPoint = newIncreasePointPricePerPoint;
+		emit ChangeIncreasePointPricePerPoint(newIncreasePointPricePerPoint);
 	}
 	
 	// tokenMetadataBaseURI을 변경합니다.
 	function changeTokenMetadataBaseURI(string newTokenMetadataBaseURI) onlyCompany public {
 		tokenMetadataBaseURI = newTokenMetadataBaseURI;
+		emit ChangeTokenMetadataBaseURI(newTokenMetadataBaseURI);
 	}
 	
 	// 공식 마켓 계약을 변경합니다.
 	function changeOfficialMarket(address newOfficialMarket) onlyCompany public {
 		officialMarket = newOfficialMarket;
+		emit ChangeOfficialMarket(newOfficialMarket);
 	}
 	
 	// 특정 소유주를 차단합니다.
 	function blockMaster(address masterToBlock) onlyCompany public {
 		masterToIsBlocked[masterToBlock] = true;
+		emit BlockMaster(masterToBlock);
 	}
 	
 	// 특정 요정을 차단합니다.
 	function blockFairy(uint256 fairyIdToBlock) onlyCompany public {
 		fairyIdToIsBlocked[fairyIdToBlock] = true;
+		emit BlockFairy(fairyIdToBlock);
 	}
 	
 	// 소유주 차단을 해제합니다.
-	function unblockMaster(address masterToBlock) onlyCompany public {
-		delete masterToIsBlocked[masterToBlock];
+	function unblockMaster(address masterToUnlock) onlyCompany public {
+		delete masterToIsBlocked[masterToUnlock];
+		emit UnblockMaster(masterToUnlock);
 	}
 	
 	// 요정 차단을 해제합니다.
-	function unblockFairy(uint256 fairyIdToBlock) onlyCompany public {
-		delete fairyIdToIsBlocked[fairyIdToBlock];
+	function unblockFairy(uint256 fairyIdToUnblock) onlyCompany public {
+		delete fairyIdToIsBlocked[fairyIdToUnblock];
+		emit UnblockFairy(fairyIdToUnblock);
 	}
 }

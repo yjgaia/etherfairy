@@ -8,8 +8,9 @@ import "./Util/SafeMath.sol";
 contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 	using SafeMath for uint256;
 	
-	// 요정 탄생 이벤트
+	// 이벤트
     event FairyBirth(address indexed master, uint256 fairyId);
+    event ChangeFairyName(uint256 indexed fairyId, string name);
 	
 	// 요정을 탄생시킵니다.
 	function birthFairy(
@@ -93,5 +94,29 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 	// 요정의 이름을 변경합니다.
 	function changeFairyName(uint256 fairyId, string newName) whenServiceRunning whenNotBlocked whenNotBlockedFairy(fairyId) onlyMasterOf(fairyId) public {
 		fairies[fairyId].name = newName;
+		
+		emit ChangeFairyName(fairyId, newName);
+	}
+	
+	// 요정을 많이 가진 순서대로 소유주의 ID 목록을 가져옵니다.
+	function getMasterIdsByFairyCount() view public returns (uint256[]) {
+		uint256[] memory masterIds = new uint256[](masters.length);
+		
+		for (uint256 i = 0; i < masters.length; i += 1) {
+			
+			uint256 fairyCount = balanceOf(masters[i]);
+			
+			for (uint256 j = i; j > 0; j -= 1) {
+				if (balanceOf(masters[masterIds[j - 1]]) < fairyCount) {
+					masterIds[j] = masterIds[j - 1];
+				} else {
+					break;
+				}
+			}
+			
+			masterIds[j] = i;
+		}
+		
+		return masterIds;
 	}
 }
