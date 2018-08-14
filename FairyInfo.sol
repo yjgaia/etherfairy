@@ -8,6 +8,7 @@ contract FairyInfo is EtherFairyBase {
 	// 요정의 기본 정보를 반환합니다.
 	function getFairyBasicInfo(uint256 fairyId) view public returns (
 		string fairyOriginId,
+		address designer,
 		string name,
 		uint256 birthTime,
 		uint256 appendedLevel) {
@@ -16,6 +17,7 @@ contract FairyInfo is EtherFairyBase {
 		
 		return (
 			fairy.fairyOriginId,
+			fairy.designer,
 			fairy.name,
 			fairy.birthTime,
 			fairy.appendedLevel

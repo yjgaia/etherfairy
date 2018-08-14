@@ -9,7 +9,7 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 	using SafeMath for uint256;
 	
 	// 이벤트
-    event FairyBirth(address indexed master, uint256 fairyId);
+    event BirthFairy(address indexed master, uint256 fairyId);
     event ChangeFairyName(uint256 indexed fairyId, string name);
 	
 	// 요정을 탄생시킵니다.
@@ -32,6 +32,9 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 		uint256 lightPointPerLevel,
 		uint256 darkPointPerLevel
 		) whenServiceRunning whenNotBlocked payable public {
+		
+		// 주소 오용 차단
+		require(checkAddressMisused(designer) != true);
 		
 		// 요정 원본의 가격과 비교합니다.
 		require(msg.value == fairyOriginPrice);
@@ -87,7 +90,7 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 		designer.transfer(msg.value.div(2));
 		
 		// 이벤트 발생
-		emit FairyBirth(msg.sender, fairyId);
+		emit BirthFairy(msg.sender, fairyId);
 		emit Transfer(0x0, msg.sender, fairyId);
 	}
 
