@@ -11,8 +11,8 @@ contract EtherFairyBase is ERC721Metadata {
 	string constant public SYMBOL = "FAIRY";
 	string public tokenMetadataBaseURI = "https://etherfairy.com/api/tokenmetadata/";
 	
-	// 요정 원본의 가격 (초기 가격은 0.01 이더입니다.)
-	uint256 public fairyOriginPrice = 0.01 ether;
+	// 요정 원본의 가격
+	uint256 public fairyOriginPrice = 0.05 ether;
 	
 	// 임의 레벨업 가격
 	uint256 public customLevelUpPrice = 0.01 ether;
@@ -80,10 +80,12 @@ contract EtherFairyBase is ERC721Metadata {
 		bytes32 hash = keccak256(bytes(fairyOriginId));
 		
 		uint256[] memory fairyIds = new uint256[](getFairyCountByOriginId(fairyOriginId));
+		uint256 j = 0;
 		
 		for (uint256 i = 0; i < fairies.length; i += 1) {
 			if (keccak256(bytes(fairies[i].fairyOriginId)) == hash) {
-				fairyIds[fairyIds.length - 1] = i;
+				fairyIds[j] = i;
+				j += 1;
 			}
 		}
 		

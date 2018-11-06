@@ -39,7 +39,7 @@ contract FairyMaster is FairyOwnership, FairyPayToUpgrade {
 		// 요정 원본의 가격과 비교합니다.
 		require(msg.value == fairyOriginPrice);
 		
-		// 초기0 속성 값들의 총합은 5가 되어야 합니다.
+		// 초기 속성 값들의 총합은 5가 되어야 합니다.
 		uint256 totalPointPerLevel = firePointPerLevel;
 		totalPointPerLevel = totalPointPerLevel.add(waterPointPerLevel);
 		totalPointPerLevel = totalPointPerLevel.add(windPointPerLevel);

@@ -16,6 +16,12 @@ contract FiaryMarket is FiaryMarketBase {
 	// 요정 판매를 시작합니다.
 	function startSale(uint256 fairyId, uint256 price) whenMarketRunning onlyMasterOf(fairyId) public {
 		
+        uint256 companyRevenue = price.div(10);
+        uint256 sellerRevenue = price.div(10).mul(9);
+        
+        // 수수료와 이익의 합이 요정 가격과 일치해야 합니다.
+        require(companyRevenue.add(sellerRevenue) == price);
+		
 		// 마켓으로 요정 이전
 		nft.transferFrom(msg.sender, this, fairyId);
 		
@@ -134,9 +140,10 @@ contract FiaryMarket is FiaryMarketBase {
         uint256 companyRevenue = msg.value.div(10);
         uint256 sellerRevenue = msg.value.div(10).mul(9);
         
+        // 수수료와 이익의 합이 요정 가격과 일치해야 합니다.
         require(companyRevenue.add(sellerRevenue) == msg.value);
 		
-		// 회사에게 금액의 10%를 지급합니다.
+		// 회사에게 금액의 10%를 수수료로 지급합니다.
 		company.transfer(companyRevenue);
 		
 		// 판매자에게 금액의 90%를 지급합니다.

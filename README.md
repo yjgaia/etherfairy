@@ -80,10 +80,10 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `increaseDarkPointPerLevel(uint256 fairyId)` 돈을 지불하고 레벨 당 어둠 속성 증가 포인트를 올립니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `birthFairy(string fairyOriginId, address designer, string name, uint256 firePointPerLevel, uint256 waterPointPerLevel, uint256 windPointPerLevel, uint256 earthPointPerLevel, uint256 lightPointPerLevel, uint256 darkPointPerLevel)` 요정을 탄생시킵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `changeFairyName(uint256 fairyId, string newName)` 요정의 이름을 변경합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `getMasterIdsByFairyCount()` 요정을 많이 가진 순서대로 소유주의 ID 목록을 가져옵니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getMasterIdsByFairyCount()` 요정을 많이 가진 순서대로 소유주의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyCount()` 요정의 개수를 반환합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `getFairyCountByOriginId(string fairyOriginId)` 원본 ID에 해당하는 요정의 개수를 반환합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) `getFairyIdsByOriginId(string fairyOriginId)` 원본 ID에 해당하는 요정의 ID 목록을 반환합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyCountByOriginId(string fairyOriginId)` 원본 ID에 해당하는 요정의 개수를 반환합니다.
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyIdsByOriginId(string fairyOriginId)` 원본 ID에 해당하는 요정의 ID 목록을 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getMasterCount()` 소유주 계정의 개수를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyBasicInfo(uint256 fairyId)` 요정의 기본 정보를 반환합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyBasicPointsPerLevel(uint256 fairyId)` 요정의 기본 속성에 대한 레벨 당 증가 포인트들을 반환합니다.
@@ -102,7 +102,7 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyIdsByLightPointPerLevel()` 레벨 당 빛 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `getFairyIdsByDarkPointPerLevel()` 레벨 당 어둠 속성 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `supportsInterface(bytes4 interfaceID)` 주어진 인터페이스가 구현되어 있는지 확인합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) 각종 이벤트들
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) 각종 이벤트들
 
 ## FiaryMarketBase.sol
 요정 거래 마켓의 기본적인 내용이 들어있는 계약입니다.
@@ -119,7 +119,7 @@ ERC-721을 상속하여 구현한, 요정 소유권에 관한 기능들이 포�
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `findSaleIdByFairyId(uint256 fairyId)` 요정 ID로부터 판매 정보 ID를 가져옵니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `cancelSale(uint256 fairyId)` 요정 판매를 취소합니다.
 - ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) `buy(uint256 fairyId)` 요정을 구매합니다.
-- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-no-red.svg) 각종 이벤트들
+- ![테스트 여부](https://img.shields.io/badge/테스트%20여부-yes-brightgreen.svg) 각종 이벤트들
 
 ## 라이센스
 [MIT](LICENSE)
