@@ -28,7 +28,7 @@ contract FairyInfo is EtherFairyBase {
 	function getFairyBasicPointsPerLevel(uint256 fairyId) view public returns (
 		uint256 hpPointPerLevel,
 		uint256 attackPointPerLevel,
-		uint256 defensePointPerLevel,
+		uint256 defencePointPerLevel,
 		uint256 agilityPointPerLevel,
 		uint256 dexterityPointPerLevel) {
 		
@@ -37,7 +37,7 @@ contract FairyInfo is EtherFairyBase {
 		return (
 			fairy.hpPointPerLevel,
 			fairy.attackPointPerLevel,
-			fairy.defensePointPerLevel,
+			fairy.defencePointPerLevel,
 			fairy.agilityPointPerLevel,
 			fairy.dexterityPointPerLevel
 		);

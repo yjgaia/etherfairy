@@ -41,7 +41,7 @@ contract EtherFairyBase is ERC721Metadata {
 		// 기본 속성에 대한 레벨 당 증가 포인트들
 		uint256 hpPointPerLevel;
 		uint256 attackPointPerLevel;
-		uint256 defensePointPerLevel;
+		uint256 defencePointPerLevel;
 		uint256 agilityPointPerLevel;
 		uint256 dexterityPointPerLevel;
 		

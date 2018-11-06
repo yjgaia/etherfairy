@@ -7,6 +7,7 @@ contract FiaryMarket is FiaryMarketBase {
 	using SafeMath for uint256;
 
     event StartSale(uint256 indexed fairyId, uint256 price);
+    event ChangeSaleId(uint256 indexed originSaleId, uint256 newSaleId);
     event CancelSale(uint256 indexed fairyId);
     event SuccessSale(uint256 indexed fairyId, uint256 price);
     
@@ -82,8 +83,10 @@ contract FiaryMarket is FiaryMarketBase {
 		nft.transferFrom(this, msg.sender, fairyId);
 		
 		// 판매 정보 삭제
-		for (i = saleId; i < sales.length - 1; i += 1){
+		for (i = saleId; i < sales.length - 1; i += 1) {
             sales[i] = sales[i + 1];
+            
+            emit ChangeSaleId(i + 1, i);
         }
         delete sales[sales.length - 1];
         sales.length -= 1;
@@ -119,18 +122,25 @@ contract FiaryMarket is FiaryMarketBase {
 		// 구매자로 요정 이전
 		nft.transferFrom(this, msg.sender, fairyId);
 		
-		// 회사에게 금액의 10%를 지급합니다.
-		company.transfer(msg.value.div(10));
-		
-		// 판매자에게 금액의 90%를 지급합니다.
-		sale.seller.transfer(msg.value.div(10).mul(9));
-		
 		// 판매 정보 삭제
-		for (i = saleId; i < sales.length - 1; i += 1){
+		for (i = saleId; i < sales.length - 1; i += 1) {
             sales[i] = sales[i + 1];
+            
+            emit ChangeSaleId(i + 1, i);
         }
         delete sales[sales.length - 1];
         sales.length -= 1;
+        
+        uint256 companyRevenue = msg.value.div(10);
+        uint256 sellerRevenue = msg.value.div(10).mul(9);
+        
+        require(companyRevenue.add(sellerRevenue) == msg.value);
+		
+		// 회사에게 금액의 10%를 지급합니다.
+		company.transfer(companyRevenue);
+		
+		// 판매자에게 금액의 90%를 지급합니다.
+		sale.seller.transfer(sellerRevenue);
 		
 		emit SuccessSale(fairyId, sale.price);
 	}

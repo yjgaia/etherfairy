@@ -15,7 +15,7 @@ contract FairyOwnership is EtherFairyBase, ERC721 {
 	// 소유주의 요정 ID 목록 정보
 	mapping(address => uint256[]) public masterToFairyIds;
 	
-	// 요청의 요정 ID 목록에서의 index 정보
+	// 요정의 요정 ID 목록에서의 index 정보
 	mapping(uint256 => uint256) internal fairyIdToFairyIdsIndex;
 	
 	// 요정 거래 권한이 승인된 지갑 정보

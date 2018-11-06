@@ -94,15 +94,15 @@ contract FairyRank is EtherFairyBase {
 	}
 	
 	// 레벨 당 방어 증가 포인트가 높은 순서대로 요정의 ID 목록을 가져옵니다.
-	function getFairyIdsByDefensePointPerLevel() view public returns (uint256[]) {
+	function getFairyIdsByDefencePointPerLevel() view public returns (uint256[]) {
 		uint256[] memory fairyIds = new uint256[](fairies.length);
 		
 		for (uint256 i = 0; i < fairies.length; i += 1) {
 			
-			uint256 defensePointPerLevel = fairies[i].defensePointPerLevel;
+			uint256 defencePointPerLevel = fairies[i].defencePointPerLevel;
 			
 			for (uint256 j = i; j > 0; j -= 1) {
-				if (fairies[fairyIds[j - 1]].defensePointPerLevel < defensePointPerLevel) {
+				if (fairies[fairyIds[j - 1]].defencePointPerLevel < defencePointPerLevel) {
 					fairyIds[j] = fairyIds[j - 1];
 				} else {
 					break;
